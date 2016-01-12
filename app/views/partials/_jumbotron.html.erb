@@ -1,0 +1,16 @@
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+  </div> 
+    <div class="jumbotron">
+      <div class="container">
+        <div class= "rectangle"><h1>IT On demand!!!</h1></div>
+        <div id ="user_nav">
+			    <% if user_signed_in? %>
+			      Signed in as <%= current_user.email %>. Not you?
+			      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+			    <% else %>
+			      <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+			    <% end %>
+			  </div>
+        <!-- <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
+    </div>

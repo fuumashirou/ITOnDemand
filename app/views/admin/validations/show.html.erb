@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<%= @validation.email %>
+<%= @validation.validated %>
+
+<%= simple_form_for @new_user, url: admin_validate_user_path do |f| %> 
+  <%= f.input :validated, as: :hidden, id: "status", input_html: { value: 1 }  %>
+  <%= f.input :id, as: :hidden, id: "status2", input_html: { value: @validation.id }  %>
+	<br>
+	<%= f.submit "Validar" %> 
+<% end %>
+
+<%#= link_to 'Edit', edit_admin_validation_path(@validation) %> |
+<%= link_to 'Back', admin_user_validation_path %>
+

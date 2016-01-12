@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @service.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @service.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @service.price %>
+</p>
+
+
+<%#= form_for(@service) do |f| %> 
+<% if @suscription[0].nil? %>
+
+	<%= simple_form_for @new_suscription, url: suscribe_path do |f| %> 
+	  <%= f.input :service_id, as: :hidden, id: "service", input_html: { value: @service.id }  %>
+	  <%= f.input :user_id, as: :hidden, id: "user", input_html: { value: current_user.id }  %>
+	<%= f.submit "Suscribirse" %> 
+	<% end %>
+
+<% else %>
+	<%= link_to 'Desuscribirse', unsuscribe_path(@suscription, @service.id),:class => "btn btn-primary", data: { confirm: 'Seguro que desea desuscribirse?' } %>
+
+
+<% end %>
+	<br>
+	<br>
+
+
+
+<%= link_to 'Back', services_path %>
